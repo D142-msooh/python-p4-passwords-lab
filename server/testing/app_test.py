@@ -9,6 +9,10 @@ app.secret_key = b'a\xdb\xd2\x13\x93\xc1\xe9\x97\xef2\xe3\x004U\xd1Z'
 class TestApp:
     '''Flask API in app.py'''
 
+    @pytest.fixture(autouse=True)
+    def setup(self, create_tables):
+        pass
+
     def test_creates_users_at_signup(self):
         '''creates user records with usernames and passwords at /signup.'''
         
